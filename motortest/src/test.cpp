@@ -27,5 +27,6 @@ void loop() {
  Serial.println(left/12);
  Serial.print("Right rotations: ");
  Serial.println(right/12);
+ encoders.resetCounts(); 
  delay(1000); // Wacht een seconde voordat je opnieuw meet
 }

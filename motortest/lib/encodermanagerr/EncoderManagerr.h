@@ -1,5 +1,3 @@
-#ifndef EncoderManagerr_h
-#define EncoderManagerr_h
 
 #include <Zumo32U4.h>
 
@@ -10,8 +8,7 @@
  * Deze klasse houdt de encoderwaarden bij en berekent
  * het verschil tussen opeenvolgende metingen.
  */
-class EncoderManager
-{
+class EncoderManager{
 private:
     /**
      * @brief Totale waarde van linker encoder.
@@ -50,6 +47,6 @@ public:
     void printData();
     int getLeftCount();
     int getRightCount();
-};
-
-#endif
+    void resetCounts();
+}
+;

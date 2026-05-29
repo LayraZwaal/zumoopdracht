@@ -61,3 +61,8 @@ int EncoderManager::getRightCount()
 {
     return rightCount;
 }
+void EncoderManager::resetCounts()
+{
+  encoders.getCountsAndResetLeft();
+  encoders.getCountsAndResetRight();
+}
