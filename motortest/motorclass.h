@@ -1,5 +1,3 @@
-#ifndef MOTORCLASS_H
-#define MOTORCLASS_H
 #include <Arduino.h>
 #include <Wire.h>
 #include <Zumo32U4.h>
@@ -13,4 +11,3 @@ class motorclass {
   private:
     Zumo32U4Motors motors;
 };
-#endif
