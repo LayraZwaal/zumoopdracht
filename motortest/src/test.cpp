@@ -24,9 +24,9 @@ void loop() {
  int left = encoders.getLeftCount();
  int right = encoders.getRightCount();
  Serial.print("Left rotations: ");
- Serial.println(left/12);
+ Serial.println(left/1204);
  Serial.print("Right rotations: ");
- Serial.println(right/12);
+ Serial.println(right/1204);
  encoders.resetCounts(); 
  delay(1000); // Wacht een seconde voordat je opnieuw meet
 }
