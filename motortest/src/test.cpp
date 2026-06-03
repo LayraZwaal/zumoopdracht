@@ -20,13 +20,15 @@ void loop() {
   encoders.update();
   
   // Print de encoderdata naar Serial Monitor
-  encoders.printData();
+ encoders.printData();
  int left = encoders.getLeftCount();
  int right = encoders.getRightCount();
+ double leftRotations = left / 602.22; // Aantal rotaties van de linkerwiel
+ double rightRotations = right / 602.22; // Aantal rotaties van de rechterwiel
  Serial.print("Left rotations: ");
- Serial.println(left/1204);
+ Serial.println(leftRotations);
  Serial.print("Right rotations: ");
- Serial.println(right/1204);
+ Serial.println(rightRotations);
  encoders.resetCounts(); 
  delay(1000); // Wacht een seconde voordat je opnieuw meet
-}
+}  
