@@ -2,24 +2,50 @@
 #include <Wire.h>
 #include <Zumo32U4.h>
 
-Zumo32U4ProximitySensors proxSensors;
+class ZumoScanner
+{
+private:
+  Zumo32U4ProximitySensors proxSensors;
+  uint8_t links;
+  uint8_t rechts;
 
-void setup() {
-//maakserieleverbinding voor uitlezing
+public:
+  ZumoScanner() : links(0), rechts(0) {}
+
+  void begin()
+  {
+    proxSensors.initThreeSensors();
+  }
+
+  void update()
+  {
+    proxSensors.read();
+    links = proxSensors.countsFrontWithLeftLeds();
+    rechts = proxSensors.countsFrontWithRightLeds();
+  }
+
+  void printData()
+  {
+    Serial.print("L: ");
+    Serial.print(links);
+    Serial.print(" | R: ");
+    Serial.println(rechts);
+  }
+};
+
+ZumoScanner scanner;
+
+void setup()
+{
   Serial.begin(9600);
-  // initializeerd senors(links rech en midde, gebruik alleen middelste senosr
-  proxSensors.initThreeSensors(); 
+  scanner.begin();
 }
 
-void loop() {
-  // Pulse the LEDs and read the sensors
-  proxSensors.read();
-// geeft een waarde
-  uint8_t links   = proxSensors.countsFrontWithLeftLeds();
-  uint8_t rechs  = proxSensors.countsFrontWithRightLeds();
-// print de verwerkte sensor waarde voor de sensor
-  Serial.println(" L: "); Serial.print(links);
-  Serial.print(" R: "); Serial.print(rechs);
+void loop()
+{
+  scanner.update();
+
+  scanner.printData();
 
   delay(100);
 }
