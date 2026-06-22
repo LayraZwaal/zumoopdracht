@@ -1,5 +1,5 @@
 /**
- * @file JouwHoofdBestand.ino
+ * @file   Githubversie.ino
  * @brief Dit is het startpunt van onze Zumo32U4 robot. [cite: 1, 2]
  * @author Groep 2
  */
