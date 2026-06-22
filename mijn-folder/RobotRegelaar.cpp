@@ -44,7 +44,7 @@ void RobotRegelaar::verwerkLoop() {
     }
 
     if (isAutonoomActief) {
-        // We skippen de wipwap-check en rijden gewoon puur op de PID-lijnvolger
+        // We skippen de wipwap check en rijden gewoon puur op de PID lijnvolger
         corrigeerKoersOpBaan(); 
     }
 }
